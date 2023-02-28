@@ -2,20 +2,23 @@ import java.util.Scanner;
 
 public class Util {
     public static void main(String[] args) {
-        monthlyPayment();
+        sqrt();
     }
 
-    public static void monthlyPayment() {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter year : ");
-        int y = sc.nextInt();
-        System.out.println("Enter principle Loan : ");
-        int p = sc.nextInt();
-        System.out.println("Enter percent : ");
-        int r = sc.nextInt();
-        int n = 12 * y;
-        int R = r / (12 * 100);
-        float payment = (float) ((p * r) / (1 - Math.pow((1 + r), -n)));
-        System.out.println(payment);
+    public static void sqrt(){
+        System.out.println("Enter the number to find Square root");
+        Scanner sc=new Scanner(System.in);
+        int c=sc.nextInt();
+        if(c<0) {
+            double epsilon = 1e-15;
+            double t = c;
+            while (Math.abs(t - c / t) > epsilon * t) {
+                t = (c / t + t) / 2.0;
+            }
+            System.out.println("square root is " + t);
+        }
+        else {
+            System.out.println("negative");
+        }
     }
 }
