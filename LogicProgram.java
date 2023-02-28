@@ -3,24 +3,23 @@ import java.util.Scanner;
 public class LogicProgram {
     public static void main(String[] args) {
         LogicProgram lp = new LogicProgram();
-        lp.perfectNumber();
+        lp.primeNumber();
     }
 
-    public void perfectNumber() {
-        System.out.println("Perfect Number");
+    public void primeNumber() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("enter number");
+        System.out.println("enter prime number");
         int num = sc.nextInt();
-        int sum = 0;
-        for (int i = 1; i <= num / 2; i++) {
+        int temp = 0;
+        for (int i = 2; i <= num - 1; i++) {
             if (num % i == 0) {
-                sum = sum + i;
+                temp = temp + 1;
             }
         }
-        if (sum == num) {
-            System.out.println("perfect number");
+        if (temp == 0) {
+            System.out.println("prime number");
         } else {
-            System.out.println("not");
+            System.out.println("not prime number");
         }
     }
 }
