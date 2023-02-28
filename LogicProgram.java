@@ -3,23 +3,23 @@ import java.util.Scanner;
 public class LogicProgram {
     public static void main(String[] args) {
         LogicProgram lp = new LogicProgram();
-        lp.primeNumber();
+        lp.reverseNumber();
     }
 
-    public void primeNumber() {
+    public void reverseNumber() {
+        System.out.println("Reverse Number");
         Scanner sc = new Scanner(System.in);
-        System.out.println("enter prime number");
+        System.out.println("Enter number : ");
         int num = sc.nextInt();
-        int temp = 0;
-        for (int i = 2; i <= num - 1; i++) {
-            if (num % i == 0) {
-                temp = temp + 1;
+        int reminder;
+        int reverse = 0;
+        for (int i = 0; i <= num; i++) {
+            if (num != 0) {
+                reminder = num % 10;
+                reverse = reverse * 10 + reminder;
+                num = num / 10;
             }
         }
-        if (temp == 0) {
-            System.out.println("prime number");
-        } else {
-            System.out.println("not prime number");
-        }
+        System.out.println("reverse number : " + reverse);
     }
 }
