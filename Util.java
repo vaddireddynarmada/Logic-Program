@@ -2,41 +2,31 @@ import java.util.Scanner;
 
 public class Util {
     public static void main(String[] args) {
-        dayOfWeek();
+
+        temperatureConversion();
     }
-    public static void dayOfWeek() {
+
+    public static void temperatureConversion() {
+        System.out.println("temperature Conversion");
+        float celsius, fahrenheit, result;
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter year : ");
-        int year = sc.nextInt();
-        System.out.println("Enter month : ");
-        int month = sc.nextInt();
-        System.out.println("Enter day : ");
-        int day = sc.nextInt();
-        int y = year - (14 - month) / 12;
-        int x = y + y / 4 - y / 100 + y / 400;
-        int m = month + 12 * ((14 - month) / 12) - 2;
-        int d = (day + x + (31 * m) / 12) % 7;
-        switch (d) {
-            case 0:
-                System.out.println("Sunday");
-                break;
+        System.out.println("1.Celsius to Fahrenheit\n2.Fahrenheit to Celsius");
+        int choice = sc.nextInt();
+        switch (choice) {
             case 1:
-                System.out.println("Monday");
+                System.out.println("Enter celsius");
+                celsius = sc.nextFloat();
+                result = (celsius * 9 / 5) + 32;
+                System.out.println("Fahrenheit value " + result);
                 break;
             case 2:
-                System.out.println("Tuesday");
+                System.out.println("Enter Fahrenheit");
+                fahrenheit = sc.nextFloat();
+                result = (fahrenheit - 32) * 5 / 9;
+                System.out.println("Celsius value " + result);
                 break;
-            case 3:
-                System.out.println("Wednesday");
-                break;
-            case 4:
-                System.out.println("Thursday");
-                break;
-            case 5:
-                System.out.println("Friday");
-                break;
-            case 6:
-                System.out.println("Saturday");
+            default:
+                System.out.println("Enter valid choice");
                 break;
         }
     }
