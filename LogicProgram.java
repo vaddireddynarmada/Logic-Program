@@ -3,23 +3,18 @@ import java.util.Scanner;
 public class LogicProgram {
     public static void main(String[] args) {
         LogicProgram lp = new LogicProgram();
-        lp.reverseNumber();
+        lp.stopWatch();
     }
 
-    public void reverseNumber() {
-        System.out.println("Reverse Number");
+    public void stopWatch() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter number : ");
-        int num = sc.nextInt();
-        int reminder;
-        int reverse = 0;
-        for (int i = 0; i <= num; i++) {
-            if (num != 0) {
-                reminder = num % 10;
-                reverse = reverse * 10 + reminder;
-                num = num / 10;
-            }
-        }
-        System.out.println("reverse number : " + reverse);
+        System.out.println("Enter number to start : ");
+        int s = sc.nextInt();
+        double start = System.currentTimeMillis();
+        System.out.println("Enter number to stop : ");
+        int e = sc.nextInt();
+        double end = System.currentTimeMillis();
+        double elapsedTime = (end - start) / 1000;
+        System.out.println("Elapsed time is : " + elapsedTime);
     }
 }
