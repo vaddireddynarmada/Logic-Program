@@ -2,19 +2,24 @@ import java.util.Scanner;
 
 public class LogicProgram {
     public static void main(String[] args) {
-        LogicProgram lp = new LogicProgram();
-        lp.stopWatch();
+        LogicProgram couponNum = new LogicProgram();
+        couponNum.couponNumber();
     }
 
-    public void stopWatch() {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter number to start : ");
-        int s = sc.nextInt();
-        double start = System.currentTimeMillis();
-        System.out.println("Enter number to stop : ");
-        int e = sc.nextInt();
-        double end = System.currentTimeMillis();
-        double elapsedTime = (end - start) / 1000;
-        System.out.println("Elapsed time is : " + elapsedTime);
+    public void couponNumber() {
+        char[] chars = "dhwsvwemvbwm".toCharArray();
+        int max = 100000000;
+        double d = Math.random();
+        int random = (int) (d * max);
+        String sb = "";
+        System.out.println("random double " + d + " random at start " + random);
+        while (random > 0) {
+            sb = sb + (chars[random % chars.length]);
+            random /= chars.length;
+            System.out.println(random + "  " + random % chars.length + " sb is " + sb);
+        }
+        String couponCode = sb.toString();
+        System.out.println("Coupon Code: " + couponCode);
     }
 }
+
